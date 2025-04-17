@@ -6,6 +6,8 @@ public class Principal {
 		
 		System.out.print("ola mundo");
 		
+		int numero = 10;
+		
 	}
 
 }
