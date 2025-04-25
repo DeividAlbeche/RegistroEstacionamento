@@ -6,13 +6,15 @@ public class Veiculo {
 	String modelo;
 	String cor;
 	Cliente cliente;
+	String tipo_veiculo;
 	
-	public Veiculo(String placa, String modelo, String cor, Cliente cliente) {
+	public Veiculo(String placa, String modelo, String cor, Cliente cliente, String tipo_veiculo) {
 		
 		this.placa = placa;
 		this.modelo = modelo;
 		this.cor = cor;
 		this.cliente = cliente;
+		this.tipo_veiculo = tipo_veiculo;
 	}
 
 	public String getPlaca() {
@@ -46,6 +48,15 @@ public class Veiculo {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+
+	public String getTipo_veiculo() {
+		return tipo_veiculo;
+	}
+
+	public void setTipo_veiculo(String tipo_veiculo) {
+		this.tipo_veiculo = tipo_veiculo;
+	}
+	
 	
 	
 	
