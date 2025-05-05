@@ -9,12 +9,12 @@ public class Registro {
 	int id;
 	Timestamp hora_entrada;
 	Timestamp hora_saida;
-	LocalDate data_registro;
+	Date data_registro;
 	double valor_total;
 	Cliente cliente;
 	Veiculo veiculo;
 	
-	public Registro(int id, Timestamp hora_entrada, Timestamp hora_saida, LocalDate data_registro, double valor_total, Cliente cliente,
+	public Registro(int id, Timestamp hora_entrada, Timestamp hora_saida, Date data_registro, double valor_total, Cliente cliente,
 			Veiculo veiculo) {
 		
 		this.id = id;
@@ -28,7 +28,7 @@ public class Registro {
 	
 	
 
-	public Registro(Timestamp hora_entrada, Timestamp hora_saida, LocalDate data_registro, double valor_total, Cliente cliente,
+	public Registro(Timestamp hora_entrada, Timestamp hora_saida, Date data_registro, double valor_total, Cliente cliente,
 			Veiculo veiculo) {
 		
 		this.hora_entrada = hora_entrada;
@@ -51,8 +51,8 @@ public class Registro {
 	@Override
 	public String toString() {
 		return "Registro [id=" + id + ", hora_entrada=" + hora_entrada + ", hora_saida=" + hora_saida
-				+ ", data_registro=" + data_registro + ", valor_total=" + valor_total + ", cliente=" + cliente
-				+ ", veiculo=" + veiculo + "]";
+				+ ", data_registro=" + data_registro + ", valor_total=" + valor_total + ", cliente=" + cliente.getCpf()
+				+ ", veiculo=" + veiculo.getPlaca() + "]";
 	}
 
 
@@ -93,13 +93,13 @@ public class Registro {
 
 
 
-	public LocalDate getData_registro() {
+	public Date getData_registro() {
 		return data_registro;
 	}
 
 
 
-	public void setData_registro(LocalDate data_registro) {
+	public void setData_registro(Date data_registro) {
 		this.data_registro = data_registro;
 	}
 

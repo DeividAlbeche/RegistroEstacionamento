@@ -4,10 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import entidades.Registro;
-import entidades.Veiculo;
-import entidades.Cliente;
 
 public class RegistroDao {
 
@@ -43,7 +42,7 @@ public class RegistroDao {
 		return conn;
 	}
 	
-	public void inserirRegistro(Registro novaRegistro) {
+	public void inserirRegistro(Registro registro) {
 
 		String consulta = "insert into pessoa " + "(hora_entrada, hora_saida, data_registro, valor_total, id_cliente, id_veiculo) values"
 				+ " (?,?,?,?,?,?)";
@@ -52,10 +51,13 @@ public class RegistroDao {
 			Connection conn = getConexao();
 			PreparedStatement pst = conn.prepareStatement(consulta);
 			// RETURN_GENERATED_KEYS: Retornando o id criado pelo DB
-			pst.setTimestamp(1, hora_entrada.getHora_entrada());
-			pst.setTimestamp(1, hora_saida.getHora_entrada());
-			pst.setLocaldate(3, novaPessoa.getIdade());
-			pst.setString(4, novaPessoa.getEmail());
+			pst.setTimestamp(1, registro.getHora_entrada());
+			pst.setTimestamp(2, registro.getHora_saida());
+			pst.setDate(3, registro.getData_registro());
+			pst.setDouble(4, registro.getValor_total());
+			pst.setString(5, registro.getCliente().getCpf());
+			pst.setString(6, registro.getVeiculo().getPlaca());
+
 
 			// Executando a consulta
 			pst.executeUpdate();
@@ -66,6 +68,9 @@ public class RegistroDao {
 		} catch (Exception e) {
 
 		}
+
+
+	}
 
 
 	}

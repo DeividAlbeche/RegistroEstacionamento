@@ -1,5 +1,6 @@
 package principal;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -74,8 +75,6 @@ public class Principal {
 	private static Registro registro(Veiculo veiculo, Cliente cliente, Timestamp entrada, Timestamp saida) {
 		
 		
-		Scanner leia = new Scanner(System.in);
-		
 		double valor_hora = 0;
 		
 		if(veiculo.getTipo_veiculo().equals("carro")) {
@@ -91,8 +90,9 @@ public class Principal {
 		LocalDateTime entradaLDT = entrada.toLocalDateTime();
 		LocalDateTime saidaLDT = saida.toLocalDateTime();
 		
-		LocalDate data = entradaLDT.toLocalDate();
-		
+		LocalDate localdata = entradaLDT.toLocalDate();
+		Date data = Date.valueOf(localdata); // converte para java.sql.Date
+
 		Duration duracao = Duration.between(entradaLDT, saidaLDT);
 
 		long horas = duracao.toHours();
