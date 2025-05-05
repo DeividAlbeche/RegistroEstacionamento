@@ -50,7 +50,7 @@ public class RegistroDao {
 		try {
 			Connection conn = getConexao();
 			PreparedStatement pst = conn.prepareStatement(consulta);
-			// RETURN_GENERATED_KEYS: Retornando o id criado pelo DB
+			
 			pst.setTimestamp(1, registro.getHora_entrada());
 			pst.setTimestamp(2, registro.getHora_saida());
 			pst.setDate(3, registro.getData_registro());
@@ -66,7 +66,7 @@ public class RegistroDao {
 			conn.close();
 
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 
 

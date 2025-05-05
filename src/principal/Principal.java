@@ -21,6 +21,8 @@ public class Principal {
 		List<Veiculo> veiculos = new ArrayList<Veiculo>();
 		List<Registro> registros = new ArrayList<Registro>();
 		
+		RegistroDao registroDao = new RegistroDao();
+		
 		// Registro 1
 		Cliente cliente = new Cliente("Giovane", "88099767582", "48911112222");
 		clientes.add(cliente);
@@ -34,6 +36,7 @@ public class Principal {
 		
 		Registro registro = registro(veiculo, cliente, entrada, saida);	 
 		registros.add(registro);
+		registroDao.inserirRegistro(registro);
 		
 		//Registro 2
 		cliente = new Cliente("Cleiton", "38519797584", "49911112222");
